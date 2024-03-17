@@ -41,10 +41,10 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: cicdsample
+      # - name: Download artifact
+      #   uses: actions/download-artifact@v4
+      #   with:
+      #     name: cicdsample
       - name: Setup SSH
         uses: webfactory/ssh-agent@v0.9.0
         with:
