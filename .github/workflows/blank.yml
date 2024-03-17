@@ -42,26 +42,26 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-    - name: Copy files to the server
-      uses: appleboy/scp-action@master
-      with:
-        host: ${{ secrets.SERVER_IP }}
-        username: ${{ secrets.SERVER_USERNAME }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        port: 22
-        source: "build/libs/*.jar"
-        target: "/"
+    - name: Deploy to EC2
+      env:
+        EC2_SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        EC2_HOST: ${{ secrets.SERVER_IP }}
+      run: |
+        # SSH Key 설정
+        mkdir -p ~/.ssh
+        echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan -H "$SERVER_IP" >> ~/.ssh/known_hosts
         
-    - name: Execute deployment script on the server
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.SERVER_IP }}
-        username: ${{ secrets.SERVER_USERNAME }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        port: 22
-        script: |
-          cd /
-          nohup java -jar /*.jar > log.txt 2>&1 &
+        # JAR 파일 SCP로 전송
+        scp build/libs/*.jar ubuntu@$SERVER_IP:~/
+        
+        # EC2에서 스프링부트 애플리케이션 실행
+        ssh ubuntu@$SERVER_IP << EOF
+          pgrep java | xargs kill -9
+          nohup java -jar ~/*.jar > log.txt 2>&1 &
+        EOF
+
 
 
           
