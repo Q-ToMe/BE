@@ -60,5 +60,5 @@ jobs:
           script: |
             docker pull ${{ secrets.DOCKER_USERNAME }}/qtome
             docker rm -f $(docker ps -qa)
-            docker run -d -p 8080:8080 qtome
+            docker run -d -p 8080:8080 ${{ secrets.DOCKER_USERNAME }}/qtome
             docker image prune -f
