@@ -1,5 +1,6 @@
 package com.example.qtome_be.member;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 
 import java.util.List;
@@ -11,16 +12,12 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @Setter
 public class MemberResponse {
-    private Long id;
 
+    @Schema(description = "사용자 이메일", example = "example@naver.com", required = true)
     private String email;
-    private String nickname;
-
-    private String thumbnail;
-
     public static List<MemberResponse> toReponses(List<Member> members){
         return members.stream().map(member ->
-                MemberResponse.builder().id(member.getId()).email(member.getEmail()).nickname(member.getNickname()).thumbnail(member.getPassword()).build()
+                MemberResponse.builder().email(member.getEmail()).build()
         ).collect(Collectors.toList());
     }
 

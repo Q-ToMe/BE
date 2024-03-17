@@ -31,9 +31,16 @@ public class MemberController {
         return ResponseEntity.ok("ok!!");
     }
 
-    @ApiOperation(value = "회원가입 and 로그인")
+    @ApiOperation(value = "회원가입 and 로그인",notes = "이 api는 회원가입과 로그인 둘 다 쓰이는 api입니다.(후에 분리 예정)</br> " +
+            "이 api가 호출되면 jwt토큰이 반환됩니다.</br> " +
+            "백엔드는 이 토큰을 기준으로 로그인 한 유저를 구별할 수 있습니다.</br>" +
+            "클라이언트(FE)에서는 반환값을 저장해두었다가, 로그인 한 유저의 정보가 필요한 api를 요청할 때에는 헤더에 Bearer Token으로 넣어주시면 됩니다.</br>" +
+            "예시)</br>" +
+            "헤더 이름: Authorization</br>" +
+            "헤더 값: \"Bearer {토큰}\"</br>" +
+            "`Bearer 다음에 띄어쓰기가 있는것에 유의해주세요.`")
     @PostMapping("/authenticate")
-    public ResponseEntity<?> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
+    public ResponseEntity<AuthenticationResponse> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
         final Member member = memberService.memberGet(authenticationRequest);
         final String jwt = jwtTokenUtil.generateToken("idpwd",member.getEmail());
         return ResponseEntity.ok(new AuthenticationResponse(jwt));

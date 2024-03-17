@@ -13,7 +13,7 @@ public class FollowAdaptor {
     private FollowRepository followRepository;
 
     public void createFollow(Member master, Member slave) {
-        Follow follow = Follow.builder().sender(master).receiver(slave).build();
+        Follow follow = Follow.builder().sender(master).receiver(slave).followStatus(FollowStatus.INITIAL).build();
         followRepository.save(follow);
     }
 
