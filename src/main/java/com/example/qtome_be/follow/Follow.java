@@ -1,4 +1,5 @@
-package com.example.qtome_be;
+package com.example.qtome_be.follow;
+
 
 import com.example.qtome_be.member.Member;
 import lombok.*;
@@ -11,16 +12,18 @@ import javax.persistence.*;
 @Getter
 @AllArgsConstructor
 @Setter
-public class Friend {
+public class Follow {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @ManyToOne
+    private Member sender;
 
     @ManyToOne
-    private Member master;
+    private Member receiver;
 
-    @ManyToOne
-    private Member slave;
+    private FollowStatus followStatus=FollowStatus.INITIAL;
 
 }

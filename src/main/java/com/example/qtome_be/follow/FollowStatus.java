@@ -1,4 +1,4 @@
-package com.example.qtome_be;
+package com.example.qtome_be.follow;
 
 public enum FollowStatus {
     ACCEPTED,

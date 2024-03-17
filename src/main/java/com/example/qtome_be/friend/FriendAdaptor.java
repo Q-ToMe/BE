@@ -1,9 +1,7 @@
-package com.example.qtome_be;
+package com.example.qtome_be.friend;
 
 import com.example.qtome_be.member.Adaptor;
 import com.example.qtome_be.member.Member;
-import com.example.qtome_be.member.MemberAdaptor;
-import com.example.qtome_be.member.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;

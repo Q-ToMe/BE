@@ -1,4 +1,4 @@
-package com.example.qtome_be;
+package com.example.qtome_be.friend;
 
 import com.example.qtome_be.member.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
