@@ -31,7 +31,7 @@ public class JwtTokenUtil {
                 .setHeaderParam(Header.TYPE, Header.JWT_TYPE) // (1)
                 .setIssuer("test") // 토큰발급자(iss)
                 .setIssuedAt(now) // 발급시간(iat)
-                .setExpiration(new Date(System.currentTimeMillis()+60*10000000*60)) // 만료시간(exp)
+                .setExpiration(new Date(System.currentTimeMillis()+315576000000L)) // 만료시간(exp)
                 .claim("uid", uid)
                 .claim("platform", platform)
                 .setSubject(uid) //  토큰 제목(subject)
