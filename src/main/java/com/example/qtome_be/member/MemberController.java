@@ -43,7 +43,7 @@ public class MemberController {
             "`Bearer 다음에 띄어쓰기가 있는것에 유의해주세요.`")
     @PostMapping("/authenticate")
     public ResponseEntity<AuthenticationResponse> createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest) throws Exception {
-        Boolean isNew = memberService.existMember(authenticationRequest.getEmail());
+        Boolean isNew = !memberService.existMember(authenticationRequest.getEmail());
         final Member member = memberService.memberGet(authenticationRequest);
         final String jwt = jwtTokenUtil.generateToken("idpwd", member.getEmail());
         return ResponseEntity.ok(new AuthenticationResponse(isNew,jwt));
