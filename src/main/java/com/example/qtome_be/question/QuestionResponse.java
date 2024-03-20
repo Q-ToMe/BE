@@ -8,10 +8,6 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,7 +17,7 @@ public class QuestionResponse {
     @Setter
     @Builder
     @AllArgsConstructor
-    public class Find {
+    public static class Find {
         private Long id;
 
         private LocalDateTime createdAt;
@@ -46,7 +42,7 @@ public class QuestionResponse {
     @Setter
     @Builder
     @AllArgsConstructor
-    public class Detail {
+    public static class Detail {
         private Long id;
 
         private LocalDateTime createdAt;
@@ -70,7 +66,7 @@ public class QuestionResponse {
     @Setter
     @Builder
     @AllArgsConstructor
-    public class MultipleChoiceResponse {
+    public static class MultipleChoiceResponse {
 
         private Long id;
         private Boolean isAnswer;

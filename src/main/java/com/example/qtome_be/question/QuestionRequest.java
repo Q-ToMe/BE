@@ -17,7 +17,7 @@ public class QuestionRequest {
     @Setter
     @Builder
     @AllArgsConstructor
-    public class create {
+    public static class create {
         private String bodyText;
         private QuestionType questionType;
 
@@ -38,7 +38,7 @@ public class QuestionRequest {
     @Setter
     @Builder
     @AllArgsConstructor
-    public class MultipleChoiceCreateRequest {
+    public static class MultipleChoiceCreateRequest {
         private Boolean isAnswer;
         private String bodyText;
 
