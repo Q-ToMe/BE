@@ -7,6 +7,7 @@ import com.example.qtome_be.multipleChoice.MultipleChoiceAdaptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -29,12 +30,19 @@ public class QuestionService {
     public List<QuestionResponse.Find> findAllQuestions(String email) {
         Member member = memberAdaptor.memberFind(email);
         List<Question> questionList = questionAdaptor.findAllQuestions(member);
-        return QuestionResponse.Find.toReponses(questionList);
+        List<QuestionResponse.Find> response = new ArrayList<>();
+
+        for (Question question : questionList) {
+            List<MultipleChoice> multipleChoices = multipleChoiceAdaptor.findMultipleChoices(question);
+            response.add(QuestionResponse.Find.toReponse(question, multipleChoices));
+        }
+        return response;
     }
 
 
     public QuestionResponse.Detail findDetailQuestion(Long id) {
         Question question = questionAdaptor.findQuestion(id);
-        return QuestionResponse.Detail.toReponse(question);
+        List<MultipleChoice> multipleChoices = multipleChoiceAdaptor.findMultipleChoices(question);
+        return QuestionResponse.Detail.toReponse(question,multipleChoices);
     }
 }
