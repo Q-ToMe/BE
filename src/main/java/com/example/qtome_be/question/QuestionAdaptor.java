@@ -18,4 +18,9 @@ public class QuestionAdaptor {
     public List<Question> findAllQuestions(Member member) {
         return questionRepository.findAllByMember(member);
     }
+
+    public Question findQuestion(Long id) {
+        return questionRepository.findById(id).orElseThrow(() -> new RuntimeException("질문이 없습니다."));//TODO 예외처리
+
+    }
 }

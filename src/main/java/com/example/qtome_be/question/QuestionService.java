@@ -27,4 +27,8 @@ public class QuestionService {
     }
 
 
+    public QuestionResponse.Detail findDetailQuestion(Long id) {
+        Question question = questionAdaptor.findQuestion(id);
+        return QuestionResponse.Detail.toReponse(question);
+    }
 }

@@ -34,4 +34,9 @@ public class QuestionController {
         return ResponseEntity.ok(response);
     }
 
+    @GetMapping
+    public ResponseEntity findAllQuestions(@RequestParam Long id) {
+        QuestionResponse.Detail response = questionService.findDetailQuestion(id);
+        return ResponseEntity.ok(response);
+    }
 }

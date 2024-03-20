@@ -33,4 +33,22 @@ public class QuestionResponse {
         }
 
     }
+    @Getter
+    @Setter
+    @Builder
+    @AllArgsConstructor
+    public class Detail {
+        private Long id;
+
+        private LocalDateTime createdAt;
+
+        private MemberResponse member;
+
+        private String bodyText;
+
+        private QuestionType questionType;
+        public static Detail toReponse(Question question){
+            return Detail.builder().id(question.getId()).createdAt(question.getCreatedAt()).member(MemberResponse.builder().nickname(question.getMember().getNickname()).email(question.getMember().getEmail()).build()).bodyText(question.getBodyText()).questionType(question.getQuestionType()).build();
+        }
+    }
 }
