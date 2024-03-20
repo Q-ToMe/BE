@@ -1,9 +1,9 @@
 package com.example.qtome_be.member;
 
+import com.example.qtome_be.config.Adaptor;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
-
 @Adaptor
 public class MemberAdaptor {
 

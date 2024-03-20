@@ -1,12 +1,11 @@
 package com.example.qtome_be.follow;
 
 
-import com.example.qtome_be.member.Adaptor;
+import com.example.qtome_be.config.Adaptor;
 import com.example.qtome_be.member.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
-
 @Adaptor
 public class FollowAdaptor {
     @Autowired
