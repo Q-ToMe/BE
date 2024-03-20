@@ -2,6 +2,7 @@ package com.example.qtome_be.question;
 
 import com.example.qtome_be.config.Adaptor;
 import com.example.qtome_be.member.Member;
+import com.example.qtome_be.multipleChoice.MultipleChoice;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -23,4 +24,6 @@ public class QuestionAdaptor {
         return questionRepository.findById(id).orElseThrow(() -> new RuntimeException("질문이 없습니다."));//TODO 예외처리
 
     }
+
+
 }

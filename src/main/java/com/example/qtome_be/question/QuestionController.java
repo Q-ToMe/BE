@@ -20,8 +20,8 @@ public class QuestionController {
 
     @PostMapping
     public ResponseEntity createQuestion(HttpServletRequest request, @RequestBody QuestionRequest.create createRequest) {
-
         String email = tokenExtractor.extractToken(request);
+        createRequest.validate();
         questionService.createQuestion(email, createRequest);
         return ResponseEntity.ok().build();
     }
