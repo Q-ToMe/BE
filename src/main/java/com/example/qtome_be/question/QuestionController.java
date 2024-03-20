@@ -3,12 +3,10 @@ package com.example.qtome_be.question;
 import com.example.qtome_be.config.TokenExtractor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @RestController
 @RequestMapping("question")
@@ -27,4 +25,13 @@ public class QuestionController {
         questionService.createQuestion(email, createRequest);
         return ResponseEntity.ok().build();
     }
+
+    @GetMapping
+    public ResponseEntity findAllQuestions(HttpServletRequest request) {
+        String email = tokenExtractor.extractToken(request);
+        List<QuestionResponse.Find> response = questionService.findAllQuestions(email);
+
+        return ResponseEntity.ok(response);
+    }
+
 }
