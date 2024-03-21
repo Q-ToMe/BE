@@ -3,7 +3,7 @@ package com.example.qtome_be.multipleChoice;
 import com.example.qtome_be.question.Question;
 import lombok.*;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity

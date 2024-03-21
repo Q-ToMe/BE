@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import jakarta.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
@@ -34,8 +34,8 @@ public class QuestionController {
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping
-    public ResponseEntity findAllQuestions(@RequestParam Long id) {
+    @GetMapping("/detail")
+    public ResponseEntity findQuestion(@RequestParam Long id) {
         QuestionResponse.Detail response = questionService.findDetailQuestion(id);
         return ResponseEntity.ok(response);
     }

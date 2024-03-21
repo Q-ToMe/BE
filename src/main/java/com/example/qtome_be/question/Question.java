@@ -3,7 +3,7 @@ package com.example.qtome_be.question;
 import com.example.qtome_be.member.Member;
 import lombok.*;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity

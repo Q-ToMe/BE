@@ -3,7 +3,7 @@ package com.example.qtome_be.config.security;
 import io.jsonwebtoken.*;
 import org.springframework.stereotype.Service;
 
-import jakarta.annotation.PostConstruct;
+import javax.annotation.PostConstruct;
 import java.util.Base64;
 import java.util.Date;
 
