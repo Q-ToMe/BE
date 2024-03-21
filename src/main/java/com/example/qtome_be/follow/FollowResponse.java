@@ -1,7 +1,6 @@
 package com.example.qtome_be.follow;
 
 import com.example.qtome_be.member.Member;
-import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 
 import java.util.List;
@@ -13,13 +12,13 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @Setter
 public class FollowResponse {
-    @Schema(description = "발신자 이메일", example = "example@naver.com", required = true)
+//    @Schema(description = "발신자 이메일", example = "example@naver.com", required = true)
 
     private String sender;
 
-    @Schema(description = "신청 상태", example = "수락: ACCEPTED," +
-            "   거절: REJECTED," +
-            "   초기상태: INITIAL,", required = true)
+//    @Schema(description = "신청 상태", example = "수락: ACCEPTED," +
+//            "   거절: REJECTED," +
+//            "   초기상태: INITIAL,", required = true)
     private FollowStatus followStatus;
 
     public static List<FollowResponse> toReponses(List<Follow> follows){

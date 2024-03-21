@@ -5,7 +5,7 @@ import com.example.qtome_be.multipleChoice.MultipleChoice;
 import com.example.qtome_be.question.Question;
 import lombok.*;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity

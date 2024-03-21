@@ -4,7 +4,7 @@ package com.example.qtome_be.follow;
 import com.example.qtome_be.member.Member;
 import lombok.*;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Builder
