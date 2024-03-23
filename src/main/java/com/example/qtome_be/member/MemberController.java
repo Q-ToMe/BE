@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("member")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class MemberController {
 
 
