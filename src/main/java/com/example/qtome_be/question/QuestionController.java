@@ -18,6 +18,12 @@ public class QuestionController {
     @Autowired
     private QuestionService questionService;
 
+    /**
+     * 이 클래스는 네트워킹 작업을 수행합니다.
+     * 자세한 정보는 공식 웹사이트를 참고하세요.
+     *
+     * @see <a href="https://www.example.com">공식 웹사이트</a>
+     */
     @PostMapping
     public ResponseEntity createQuestion(HttpServletRequest request, @RequestBody QuestionRequest.create createRequest) {
         String email = tokenExtractor.extractToken(request);
