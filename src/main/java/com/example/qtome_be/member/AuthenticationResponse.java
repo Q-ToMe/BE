@@ -1,8 +1,13 @@
 package com.example.qtome_be.member;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 @Getter
+@Setter
+@RequiredArgsConstructor
 public class AuthenticationResponse {
 //    @Schema(description = "신규 가입자 여부", example = "true", required = true)
     private Boolean isNew;

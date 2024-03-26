@@ -23,6 +23,7 @@ public class MultipleChoice {
     //TODO 질문+정답 묶어서 복합유니크 가능한지?
     private Boolean isAnswer;
     private String bodyText;
+    @Builder.Default
     private LocalDateTime createdAt = LocalDateTime.now();
 
 }

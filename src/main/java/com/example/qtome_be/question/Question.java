@@ -16,7 +16,7 @@ public class Question {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-
+    @Builder.Default
     private LocalDateTime createdAt = LocalDateTime.now();
 
     @ManyToOne

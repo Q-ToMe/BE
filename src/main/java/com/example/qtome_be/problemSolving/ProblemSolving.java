@@ -27,6 +27,6 @@ public class ProblemSolving {//객관식에만 제한되어있나?
 
     @ManyToOne
     private Member member;
-
+    @Builder.Default
     private LocalDateTime createdAt = LocalDateTime.now();
 }

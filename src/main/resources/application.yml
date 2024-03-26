@@ -14,3 +14,8 @@ spring:
     pathmatch:
       matching-strategy: ant_path_matcher
 
+springdoc:
+  swagger-ui:
+    url: /docs/SAMPLE - 0.0.1.json
+    path: /docs/swagger
+

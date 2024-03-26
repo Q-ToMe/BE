@@ -23,7 +23,7 @@ public class Follow {
 
     @ManyToOne
     private Member receiver;
-
+    @Builder.Default
     private FollowStatus followStatus=FollowStatus.INITIAL;
 
 }
