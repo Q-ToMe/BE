@@ -23,11 +23,11 @@ public class MemberService {
     }
 
     public Member memberGet(AuthenticationRequest authenticationRequest) {
-//        try {
+        try {
             return memberAdaptor.memberFind(authenticationRequest.getEmail());
-//        } catch (RuntimeException e) {
-//            return memberAdaptor.memberCreate(authenticationRequest.getEmail(), authenticationRequest.getPassword());
-//        }
+        } catch (RuntimeException e) {
+            return memberAdaptor.memberCreate(authenticationRequest.getEmail(), authenticationRequest.getPassword());
+        }
 
     }
 
@@ -38,6 +38,7 @@ public class MemberService {
         user.modify(request.getNickname(),request.getThumbnail());
     }
 
+    @Transactional(readOnly = true)
     public List<MemberResponse> searchMember(String request) {
         List<Member> memberList = memberAdaptor.searchMember(request);
         return MemberResponse.toReponses(memberList);

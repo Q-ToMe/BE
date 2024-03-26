@@ -21,8 +21,8 @@ import org.springframework.security.config.Customizer;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig {
 
-    @Autowired
-    private JwtTokenUtil jwtTokenUtil;
+//    @Autowired
+//    private JwtTokenUtil jwtTokenUtil;
     @Autowired
     private MemberService memberService;
 
