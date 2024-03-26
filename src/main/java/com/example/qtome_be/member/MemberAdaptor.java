@@ -1,6 +1,7 @@
 package com.example.qtome_be.member;
 
 import com.example.qtome_be.config.Adaptor;
+import com.example.qtome_be.config.NoAuthorityException;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
@@ -11,7 +12,7 @@ public class MemberAdaptor {
     @Autowired
     private MemberRepository memberRepository;
     public Member memberFind(String email) {
-        return memberRepository.findByEmail(email).orElseThrow(()-> new RuntimeException(String.format("user[%s] 유저를  찾을 수 없습니다", email)));
+        return memberRepository.findByEmail(email).orElseThrow(()-> new NoAuthorityException(String.format("user[%s] 유저를  찾을 수 없습니다", email)));
     }
 
     public Boolean existMember(String email) {

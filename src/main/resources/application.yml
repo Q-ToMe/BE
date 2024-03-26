@@ -8,9 +8,10 @@ spring:
     properties:
       hibernate:
         show_sql: true
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
     hibernate:
       ddl-auto: create
-      dialect: org.hibernate.dialect.MySQL8Dialect
 
   mvc:
     pathmatch:
@@ -22,15 +23,15 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     master:
-      url: jdbc:mysql://localhost:3309/qtome
+      jdbc-url: jdbc:mysql://localhost:3309/qtome
       username: root
       password: root
     slave1:
-      url: jdbc:mysql://localhost:3309/qtome
+      jdbc-url: jdbc:mysql://localhost:3309/qtome
       username: root
       password: root
     slave2:
-      url: jdbc:mysql://localhost:3309/qtome
+      jdbc-url: jdbc:mysql://localhost:3309/qtome
       username: root
       password: root
 
@@ -39,3 +40,5 @@ springdoc:
     url: /docs/SAMPLE - 0.0.1.json
     path: /docs/swagger
 
+slack:
+  webhook: https://hooks.slack.com/services/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

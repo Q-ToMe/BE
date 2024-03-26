@@ -1,6 +1,7 @@
 package com.example.qtome_be.config;
 
 import com.zaxxer.hikari.HikariDataSource;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
@@ -21,7 +22,10 @@ public class DataSourceConfig {
     @Bean
     @ConfigurationProperties(prefix = "spring.datasource.slave1")
     public DataSource slave1DataSource() {
-        return DataSourceBuilder.create().type(HikariDataSource.class).build();
+        return DataSourceBuilder
+                .create()
+                .type(HikariDataSource.class)
+                .build();
     }
     @Bean
     @ConfigurationProperties(prefix = "spring.datasource.slave2")

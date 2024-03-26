@@ -23,11 +23,11 @@ public class MemberService {
     }
 
     public Member memberGet(AuthenticationRequest authenticationRequest) {
-        try {
+//        try {
             return memberAdaptor.memberFind(authenticationRequest.getEmail());
-        } catch (RuntimeException e) {
-            return memberAdaptor.memberCreate(authenticationRequest.getEmail(), authenticationRequest.getPassword());
-        }
+//        } catch (RuntimeException e) {
+//            return memberAdaptor.memberCreate(authenticationRequest.getEmail(), authenticationRequest.getPassword());
+//        }
 
     }
 

@@ -1,5 +1,7 @@
 package com.example.qtome_be.member;
 
+import com.example.qtome_be.config.NoAuthorityException;
+import com.example.qtome_be.config.SlackNotification;
 import com.example.qtome_be.config.TokenExtractor;
 import com.example.qtome_be.config.security.JwtTokenUtil;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -26,11 +28,12 @@ public class MemberController {
     private TokenExtractor tokenExtractor;
 
 //    @ApiOperation(value = "테스트 api")
+    @SlackNotification
     @GetMapping
     public ResponseEntity test(HttpServletRequest request) {
         String email = tokenExtractor.extractToken(request);
         System.out.println(email);
-        return ResponseEntity.ok("ok!!");
+        throw new NoAuthorityException("권한이 없습니다.");
     }
 
     @Tag(name = "회원가입 and 로그인", description = "이 api는 회원가입과 로그인 둘 다 쓰이는 api입니다.(후에 분리 예정)</br> " +
